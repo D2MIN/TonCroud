@@ -1,0 +1,215 @@
+.header{
+    
+    .header_section{
+        width: 100%;
+        height: 180px;
+        background-color: #0D1B2A;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .close_burger{
+        animation: closeBurger 1s ease forwards;
+        background-color: #ffffff;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        
+        .line{
+            width: 40px;
+            margin: 3px 0px;
+            height: 4px;
+            background-color: #000000;
+            
+        }
+
+        .line_1{
+            animation: closeLine1 1s ease forwards;
+        }
+        .line_3{
+            animation: closeLine3 1s ease forwards;
+        }
+        .line_2{
+            animation: closeLine2 1s ease forwards;
+        }
+    }
+
+    .open_burger{
+        z-index: 2;
+        animation: openBurger 1s ease forwards;
+        background-color: #ffffff;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        
+        .line{
+            width: 40px;
+            margin: 3px 0px;
+            height: 4px;
+            background-color: #000000;   
+        }
+
+        .line_1{
+            animation: openLine1 1s ease forwards;
+        }
+        .line_3{
+            animation: openLine3 1s ease forwards;
+        }
+        .line_2{
+            animation: openLine2 1s ease forwards;
+        }
+    }
+
+    .siteName{
+        color: #fff;
+        font-size: 20px;
+    }
+
+    .login_section{
+        .button{
+            padding: 8px;
+            width: 100px;
+            background-color: #0040FF;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 18px;
+            color: #fff;
+            border: 0px;
+
+            &:hover{
+                background-color: #0040ff76;
+            }
+        }
+    }
+
+}
+
+.open_menu{
+    animation: openMenu 1s ease forwards;
+    height: 500px;
+    background-color: #0D1B2A;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 0px 0px 10px 0px;
+
+    color: #fff;
+    .menu_title{
+        font-size: 26px;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        padding-left: 50px;
+    }
+
+    .menu_links{
+        display: flex;
+        padding-left: 50px;
+        font-size: 24px;
+        font-family: monospace;
+
+        a{
+            color: #fff;
+        }
+
+        li{
+            list-style: none;
+            margin: 10px 0px;
+        }
+    }
+}
+
+.close_menu{
+    width: 0px;
+    height: 500px;
+    background-color: #0D1B2A;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    .menu_title, .menu_links{
+        opacity: 0;
+    }
+    
+}
+
+@keyframes openMenu {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 320px;
+    }
+}
+
+
+// Анимации на открытие бургера
+@keyframes openLine1 {
+    100%{
+        transform: translate(0px, 10px) rotate(45deg);
+    }
+}
+
+@keyframes openLine3 {
+    100%{
+        transform: translate(0px, -10px) rotate(-45deg);
+    }
+}
+
+@keyframes openLine2 {
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes openBurger {
+    100%{
+        transform: translate(50px, 0px);
+    }
+}
+
+// Анимации на закрытие бургера
+@keyframes closeLine1 {
+    0%{
+        transform: translate(0px, 10px) rotate(45deg);
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+@keyframes closeLine3 {
+    0%{
+        transform: translate(0px, -10px) rotate(-45deg);
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+@keyframes closeLine2 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes closeBurger {
+    0%{
+        transform: translate(50px, 0px);
+    }
+    100%{
+        transform: translate(0px, 0px);
+    }
+}
