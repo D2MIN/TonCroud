@@ -14,11 +14,11 @@ export function Header(){
                     </div>
                     <div className={style.menu_links}>
                         <ul>
-                            <li><a href=''>Главная</a></li>
-                            <li><a href=''>Все проекты</a></li>
-                            <li><a href=''>Все проекты</a></li>
-                            <li><a href=''>Статистика</a></li>
-                            <li><a href=''>О нас</a></li>
+                            <li><a href='#'>Главная</a></li>
+                            <li><a href='#'>Все проекты</a></li>
+                            <li><a href='#'>Все проекты</a></li>
+                            <li><a href='#'>Статистика</a></li>
+                            <li><a href='#'>О нас</a></li>
                         </ul>
                     </div>
                 </div>
