@@ -1,3 +1,4 @@
+import { LoginButton } from '../../Features/LoginButton/LoginButton';
 import style from './Header.module.scss';
 import React, { useState } from 'react';
 
@@ -41,10 +42,7 @@ export function Header(){
                 <div className={style.siteName}>
                     <h1>TonCroud</h1>
                 </div>
-                <div className={style.login_section}>
-                    {/* Заменить на авторизацию TON */}
-                    <button className={style.button}>Войти</button>
-                </div>
+                <LoginButton/>
             </div>
         </div>
     )
