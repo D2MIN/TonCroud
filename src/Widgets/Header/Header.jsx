@@ -17,8 +17,9 @@ export function Header(){
                         <ul>
                             <li><a href='#'>Главная</a></li>
                             <li><a href='#'>Все проекты</a></li>
-                            <li><a href='#'>Все проекты</a></li>
+                            <li><a href='#'>Создать проект</a></li>
                             <li><a href='#'>Статистика</a></li>
+                            <li><a href='#'>Награды</a></li>
                             <li><a href='#'>О нас</a></li>
                         </ul>
                     </div>

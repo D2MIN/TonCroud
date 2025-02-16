@@ -10,6 +10,7 @@
     }
 
     .close_burger{
+        cursor: pointer;
         animation: closeBurger 1s ease forwards;
         background-color: #ffffff;
         width: 50px;
@@ -40,6 +41,7 @@
     }
 
     .open_burger{
+        cursor: pointer;
         z-index: 2;
         animation: openBurger 1s ease forwards;
         background-color: #ffffff;
@@ -102,11 +104,13 @@
 
         a{
             color: #fff;
+            text-decoration: none;
         }
 
         li{
             list-style: none;
-            margin: 10px 0px;
+            font-size: 24px;
+            margin: 15px 0px;
         }
     }
 }

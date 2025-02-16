@@ -2,13 +2,18 @@ import style from './HomeCard.module.scss';
 import React from 'react';
 
 interface cardPropI {
+    color : string,
     title : string,
     description : string,
 }
 
-export function HomeCard({title, description}: cardPropI){
+export function HomeCard({color, title, description}: cardPropI){
+    const colorCard = {
+        backgroundColor: color,
+    };
+
     return(
-        <div className={style.home_card_section}>
+        <div style={colorCard} className={style.home_card_section}>
             <div className={style.card_info}>
                 <div className={style.card_title}>
                     {title}
