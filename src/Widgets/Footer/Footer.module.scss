@@ -33,3 +33,9 @@ a{
     justify-content: center;
     padding-bottom: 20px;
 }
+
+@media(max-width : 400px){
+    p{
+        font-size: 12px;
+    }
+}

@@ -3,8 +3,8 @@ import style from './Header.module.scss';
 import React, { useState } from 'react';
 
 export function Header(){
-    const [burgerStatus, setBurgerStatus] = useState('close_burger');
-    const [popupStatus, setPopupStatus] = useState('close_menu');
+    const [burgerStatus, setBurgerStatus] = useState('start_burger');
+    const [popupStatus, setPopupStatus] = useState('start_popup');
 
     return(
         <div className={style.header}>
@@ -27,13 +27,13 @@ export function Header(){
                 <div 
                     className={style[burgerStatus]}
                     onClick={()=>{
-                        popupStatus === 'close_menu' ? 
-                            setPopupStatus('open_menu'):
-                            setPopupStatus('close_menu');
+                        popupStatus === 'open_menu' ? 
+                            setPopupStatus('close_menu'):
+                            setPopupStatus('open_menu');
                             
-                        burgerStatus === 'close_burger' ? 
-                            setBurgerStatus('open_burger') : 
-                            setBurgerStatus('close_burger');
+                        burgerStatus === 'open_burger' ? 
+                            setBurgerStatus('close_burger') : 
+                            setBurgerStatus('open_burger');
                     }}
                 >
                     <div className={`${style.line} ${style.line_1}`}></div>

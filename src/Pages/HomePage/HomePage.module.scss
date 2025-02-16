@@ -4,3 +4,12 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 1000px){
+    .home_cards_section{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+}

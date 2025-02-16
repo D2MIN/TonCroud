@@ -21,3 +21,33 @@
         font-size: 20px;
     }
 }
+
+@media(max-width : 790px){
+    .home_card_section{
+        width: 50vh;
+    }
+}
+
+@media(max-width : 531px){
+    .home_card_section{
+        width: 40vh;
+    }
+}
+@media(max-width : 384px){
+    .home_card_section{
+        
+        width: 30vh;
+        padding-top: 10px;
+        .card_info{
+            padding-top: 10px;
+        }
+        .card_title{
+            width: 240px;
+            font-size: 30px;
+        }
+        .card_description{
+            width: 230px;
+            font-size: 18px;
+        }
+    }
+}

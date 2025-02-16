@@ -1,5 +1,4 @@
 .header{
-    
     .header_section{
         width: 100%;
         height: 180px;
@@ -9,9 +8,30 @@
         align-items: center;
     }
 
-    .close_burger{
+    .start_burger{
+        z-index: 2;
         cursor: pointer;
-        animation: closeBurger 1s ease forwards;
+        background-color: #ffffff;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        
+        .line{
+            width: 40px;
+            margin: 3px 0px;
+            height: 4px;
+            background-color: #000000;
+            
+        }
+    }
+
+    .close_burger{
+        z-index: 2;
+        cursor: pointer;
         background-color: #ffffff;
         width: 50px;
         height: 50px;
@@ -43,7 +63,6 @@
     .open_burger{
         cursor: pointer;
         z-index: 2;
-        animation: openBurger 1s ease forwards;
         background-color: #ffffff;
         width: 50px;
         height: 50px;
@@ -97,6 +116,7 @@
     }
 
     .menu_links{
+        animation: closeLine2 1s ease-in-out;
         display: flex;
         padding-left: 50px;
         font-size: 24px;
@@ -115,8 +135,21 @@
     }
 }
 
-.close_menu{
+.start_popup{
     width: 0px;
+    height: 500px;
+    background-color: #0D1B2A;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    .menu_title, .menu_links{
+        opacity: 0;
+    }
+}
+
+.close_menu{
+    animation: closeMenu 1s forwards;
     height: 500px;
     background-color: #0D1B2A;
     position: absolute;
@@ -129,6 +162,49 @@
     
 }
 
+// Медиа запросы для адаптации
+@media (max-width: 500px){
+    .header{
+        .siteName{
+            display: none;
+        }
+        .open_burger{
+            animation: none;
+        }
+        .close_burger{
+            animation: none;
+        }
+        .open_menu{
+            animation: openMenu_md 1s ease-in-out;
+            width: 100%;
+            .menu_title{
+                transform: translate(50px, 0px);
+                animation: closeLine2 1s ease-in-out;
+            }
+        }
+    }
+}
+
+@media (min-width: 400px){
+    .open_menu{
+        .menu_title{
+            display: none;
+        }
+        .menu_links{
+            margin-top: 15vh;
+        }
+    }
+}
+
+@keyframes openMenu_md {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
 @keyframes openMenu {
     0%{
         width: 0px;
@@ -138,6 +214,14 @@
     }
 }
 
+@keyframes closeMenu{
+    0%{
+        width: 320px;
+    }
+    100%{
+        width: 0px;
+    }
+}
 
 // Анимации на открытие бургера
 @keyframes openLine1 {
@@ -155,12 +239,6 @@
 @keyframes openLine2 {
     100%{
         opacity: 0;
-    }
-}
-
-@keyframes openBurger {
-    100%{
-        transform: translate(50px, 0px);
     }
 }
 
@@ -189,14 +267,5 @@
     }
     100%{
         opacity: 1;
-    }
-}
-
-@keyframes closeBurger {
-    0%{
-        transform: translate(50px, 0px);
-    }
-    100%{
-        transform: translate(0px, 0px);
     }
 }
