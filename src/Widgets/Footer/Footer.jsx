@@ -18,7 +18,7 @@ export function Footer(){
             </div>
 
             <div className={style.footer_bottom}>
-                <p>© 2023 Название компании. Все права защищены.</p>
+                <p>© 2025 TonCroud. Все права защищены.</p>
                 <a href="/privacy-policy">Политика конфиденциальности</a>
             </div>
         </div>

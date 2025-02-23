@@ -1,15 +1,12 @@
 import React from 'react';
 import style from './HomePage.module.scss';
-import { Header } from '../../Widgets/Header/Header';
 import { Headline } from '../../Widgets/Headline/Headline';
 import { HomeCard } from '../../Widgets/HomeCard/HomeCard.tsx';
 import { AboutWork } from '../../Widgets/AboutWork/AboutWork.jsx';
-import { Footer } from '../../Widgets/Footer/Footer.jsx';
 
 function HomePage(){
     return(
         <div className={style.homePage}>
-            <Header/>
             <Headline/>
             {/* Выровнять и сделать props с цветом для карточки */}
             <div className={style.home_cards_section}>
@@ -18,7 +15,6 @@ function HomePage(){
                 <HomeCard color={'#64B5F6'} title={'Выгодно создавать'} description={'С использованием блокчейн, сервису не нужно брать огромную комисию за проекты'}/>
             </div>
             <AboutWork/>
-            <Footer/>
         </div>
     );
 }

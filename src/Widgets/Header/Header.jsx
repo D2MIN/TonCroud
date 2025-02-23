@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { LoginButton } from '../../Features/LoginButton/LoginButton';
 import style from './Header.module.scss';
 import React, { useState } from 'react';
@@ -15,12 +16,12 @@ export function Header(){
                     </div>
                     <div className={style.menu_links}>
                         <ul>
-                            <li><a href='#'>Главная</a></li>
-                            <li><a href='#'>Все проекты</a></li>
-                            <li><a href='#'>Создать проект</a></li>
-                            <li><a href='#'>Статистика</a></li>
-                            <li><a href='#'>Награды</a></li>
-                            <li><a href='#'>О нас</a></li>
+                            <li><Link to="/">Главная</Link></li>
+                            <li><Link to="projects">Все проекты</Link></li>
+                            <li><Link to="createproject">Создать проект</Link></li>
+                            <li><Link to="statistic">Статистика</Link></li>
+                            <li><Link to="awards">Награды</Link></li>
+                            <li><Link to="about">О нас</Link></li>
                         </ul>
                     </div>
                 </div>
