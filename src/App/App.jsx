@@ -3,6 +3,7 @@ import style from './App.module.scss';
 import { Capsule } from '../Widgets/Capsule/Cupsule.tsx';
 import HomePage from '../Pages/HomePage/HomePage.jsx';
 import AllProjects from '../Pages/AllProjects/AllProjects.tsx';
+import CreateProject from '../Pages/CreateProject/CreateProject.jsx';
 
 const MyRouter = createBrowserRouter([
   {
@@ -16,12 +17,12 @@ const MyRouter = createBrowserRouter([
       {
         path : 'projects',
         element : <AllProjects/>
+      },
+      {
+        path : 'createproject',
+        element : <CreateProject/>
       }
     ]
-  },
-  {
-    path : 'projects',
-    element : <div>Project</div>
   }
 ])
 
