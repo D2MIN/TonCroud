@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import style from './SectionOne.module.scss';
 
-export function SectionOne(){
+interface sectionPropsI{
+    setNumberSection : (section: string) => void
+}
+
+export function SectionOne({setNumberSection} : sectionPropsI){
     const [img, setImg] = useState(null);
     const [prevImg, setPrevImg] = useState('');
-    const [about, setAbout] = useState('');
-    const [aboutError, setAboutError] = useState(false);
+
+    const [descript, setDescript] = useState<string>('');
+    const [aboutError, setAboutError] = useState<boolean>(false);
+
+    // Переделать на redux !!!
+    const [name, setName] = useState<string>('');
+    const [sum, setSum] = useState<number>(0);
+    const [date, setDate] = useState<string>('');
 
     const handleImageChange = (e)=>{
         const file = e.target.files[0];
@@ -17,14 +27,14 @@ export function SectionOne(){
     };
 
     useEffect(() => {
-        if(about.length > 230){
+        if(descript.length > 230){
             setAboutError(true);
             console.log("error")
         }
-        if(about.length < 230 && aboutError == true){
+        if(descript.length <= 230 && aboutError == true){
             setAboutError(false);
         }
-    }, [about])
+    }, [descript])
 
     return(
         <div className={style.SectionOne}>
@@ -34,7 +44,11 @@ export function SectionOne(){
             </div>
             <div className={`${style.project_name} ${style.section}`}>
                 <p>Название проекта</p>
-                <input type="text" placeholder="Название"/>
+                <input 
+                    onChange={(e)=>setName(e.target.value)}
+                    type="text"
+                    placeholder="Название"
+                />
             </div>
             <div className={`${style.project_img} ${style.section}`}>
                 <p>Фото проекта</p>
@@ -51,19 +65,36 @@ export function SectionOne(){
                 {aboutError && <p className={style.error_title}>Краткое описание должно быть меньше 230 символов</p>}
                 <textarea
                     className={aboutError ? style.error : style.anerror}
-                    onChange={(e)=>setAbout(e.target.value)} 
-                    type="text" placeholder="Описание с краткой информацией"
+                    onChange={(e)=>setDescript(e.target.value)} 
+                    placeholder="Описание с краткой информацией"
                 />
             </div>
             <div className={`${style.project_sum} ${style.section}`}>
                 <p>Финансовая цель</p>
-                <input type="number" placeholder="154.16"/>
+                <label>
+                    <p className={style.sumLable}>TON</p>
+                </label>
+                <input
+                    className={style.sum}
+                    onChange={(e)=>setSum(Number(e.target.value))}
+                    type="number"
+                    placeholder="154.16"
+                />
             </div>
             <div className={`${style.project_date} ${style.section}`}>
                 <p>Срок сбора средств</p>
-                <input type="date" placeholder="12.07.2025"/>
+                <input 
+                    onChange={(e) => setDate(e.target.value)}
+                    type="date"
+                    placeholder="12.07.2025"
+                />
             </div>
-            <button className={style.continue_btn}>Продолжить</button>
+            <button 
+                className={style.continue_btn}
+                onClick={()=>setNumberSection('2')}
+            >
+                Продолжить
+            </button>
         </div>
     );
 }

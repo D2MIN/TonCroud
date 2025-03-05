@@ -1,0 +1,57 @@
+.SectionTwo{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+
+    .title{
+        font-size: 14px;
+        min-width: 300px;
+        width: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .counter_page{
+            color: rgb(126, 126, 126);
+        }
+    }
+
+    .full_descript{
+        padding-top: 20px;
+
+        p{
+            font-size: 18px;
+        }
+        textarea{
+            border: 2px solid #D4D4D4;
+            color: #00439b;
+            font-weight: 800;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding-left: 10px;
+            resize: none;
+            height: 330px;
+            min-width: 300px;
+            width: 30vw;
+            
+            &:focus{
+                outline: none;
+                border: 2px solid blue;
+            }
+        }
+    }
+
+    .continue_btn{
+        width: 120px;
+        height: 30px;
+        background-color: #0040FF;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        margin-top: 50px;
+    }
+}
