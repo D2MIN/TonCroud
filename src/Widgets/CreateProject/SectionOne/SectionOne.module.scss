@@ -86,6 +86,10 @@
         border-radius: 5px;
         border: none;
         margin-top: 50px;
+        
+        &:hover{
+            background-color: #0040ffac;
+        }
     }
 }
 

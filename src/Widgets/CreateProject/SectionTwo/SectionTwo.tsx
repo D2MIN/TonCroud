@@ -8,6 +8,15 @@ interface sectionPropsI{
 export function SectionTwo({setNumberSection}:sectionPropsI){
     const [fullDescript, setFullDescript] = useState<string>('');
 
+    const changeSection = ()=>{
+        if(fullDescript.replaceAll(' ', '') != ''){
+            setNumberSection('3') 
+        }
+        else{
+            alert('Вы заполнили форму не правильно !');
+        }
+    }
+
     return(
         <div className={style.SectionTwo}>
             <div className={style.title}>
@@ -23,7 +32,7 @@ export function SectionTwo({setNumberSection}:sectionPropsI){
             </div>
             <button 
                 className={style.continue_btn}
-                onClick={()=>setNumberSection('3')}
+                onClick={()=>changeSection()}
             >
                 Продолжить
             </button>

@@ -26,6 +26,15 @@ export function SectionOne({setNumberSection} : sectionPropsI){
         }
     };
 
+    const changeSection = ()=>{
+        if(name.replaceAll(' ', '') != ''  && descript.replaceAll(' ', '') && sum > 0 && date != '' && img != ''){
+            setNumberSection('2') 
+        }
+        else{
+            alert('Вы заполнили форму не правильно !');
+        }
+    }
+
     useEffect(() => {
         if(descript.length > 230){
             setAboutError(true);
@@ -91,7 +100,7 @@ export function SectionOne({setNumberSection} : sectionPropsI){
             </div>
             <button 
                 className={style.continue_btn}
-                onClick={()=>setNumberSection('2')}
+                onClick={()=>changeSection()}
             >
                 Продолжить
             </button>

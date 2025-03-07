@@ -1,0 +1,149 @@
+.SectionThree{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+
+    .title{
+        font-size: 14px;
+        min-width: 300px;
+        width: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .counter_page{
+            color: rgb(126, 126, 126);
+        }
+    }
+
+    p{
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    
+    input{
+        border: 2px solid #D4D4D4;
+        color: #00439b;
+        font-weight: 600;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding-left: 10px;
+        height: 27px;
+        width: 300px;
+    }
+    input:focus{
+        outline: none;
+        border: 2px solid blue;
+    }
+    input[disabled]{
+        background-color: #f0f0f0;
+        color: #a0a0a0;
+        cursor: not-allowed; /* Курсор "недоступно" */
+    }
+
+    .count_reward{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .count_reward_section{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            p{
+                display: inline;
+            }
+        }
+        label{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            width: 20px;
+        }
+        .count{
+            width: 100px;
+        }
+    }
+}
+
+.button_section{
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .add_button{
+        width: 120px;
+        height: 30px;
+        background-color: #0c982d;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        margin-top: 50px;
+
+        &:hover{
+            background-color: #0c982dbd;
+        }
+    }
+
+    .sub_button{
+        width: 200px;
+        height: 30px;
+        background-color: #0040FF;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        margin-top: 30px;
+
+        &:hover{
+            background-color: #0040ffac;
+        }
+    }
+}
+
+.all_reward_section{
+    border: 2px dashed #1d4889;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 100px;
+
+    .all_reward{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .reward{
+            border-bottom: 1px solid rgb(19, 81, 135);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+
+            p{
+                font-size: 16px;
+            }
+
+            .del_button{
+                height: 25px;
+                width: 80px;
+                background-color: #b42a2a;
+                color: #fff;
+                border-radius: 5px;
+                border: none;
+
+                &:hover{
+                    background-color: #b42a2ab5;
+                }
+            }
+        }
+    }
+}
