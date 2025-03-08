@@ -1,5 +1,6 @@
 .header{
     .header_section{
+        z-index: 2;
         width: 100%;
         height: 180px;
         background-color: #0D1B2A;
@@ -158,6 +159,7 @@
 
     .menu_title, .menu_links{
         opacity: 0;
+        display: none;
     }
     
 }
