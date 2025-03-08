@@ -99,6 +99,7 @@
 }
 
 .open_menu{
+    z-index: 1;
     animation: openMenu 1s ease forwards;
     height: 500px;
     background-color: #0D1B2A;
@@ -150,6 +151,7 @@
 }
 
 .close_menu{
+    z-index: 1;
     animation: closeMenu 1s forwards;
     height: 500px;
     background-color: #0D1B2A;
