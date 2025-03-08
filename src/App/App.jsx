@@ -4,6 +4,8 @@ import { Capsule } from '../Widgets/Capsule/Cupsule.tsx';
 import HomePage from '../Pages/HomePage/HomePage.jsx';
 import AllProjects from '../Pages/AllProjects/AllProjects.tsx';
 import CreateProject from '../Pages/CreateProject/CreateProject.jsx';
+import { Provider } from 'react-redux';
+import { store } from '../Store/store.js';
 
 const MyRouter = createBrowserRouter([
   {
@@ -29,7 +31,9 @@ const MyRouter = createBrowserRouter([
 function App() {
   return (
     <div className={style.app_component}>
-      <RouterProvider router={MyRouter}/>
+      <Provider store={store}>
+        <RouterProvider router={MyRouter}/>
+      </Provider>
     </div>
   );
 }

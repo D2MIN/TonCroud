@@ -1,7 +1,15 @@
+import { useDispatch } from 'react-redux';
 import style from './SectionThree.module.scss';
 import React, {useState } from 'react';
+import { setAllRewards } from '../../../Store/AllSlices/projectSlice';
 
-export function SectionTree(){
+interface sectionPropsI{
+    setNumberSection : (section: string) => void
+}
+
+export function SectionTree({setNumberSection}:sectionPropsI){
+
+    const dispatch = useDispatch();
 
     const [name, setName] = useState<string>('');
     const [descript, setDescript] = useState<string>('');
@@ -10,8 +18,16 @@ export function SectionTree(){
     const [countFlag, setCountFlag] = useState<boolean>(false);
     const [rewards, setRewards] = useState<React.JSX.Element[]>([]);
 
-    
-    // ДОДЕЛАТЬ УДАЛЕНИЕ ЭЛЕМЕНТА (ПОЧЕМУ ТО  reward РАЗМЕРА index)
+    const changeSection = ()=>{
+            if(rewards.length > 0){
+                dispatch(setAllRewards(rewards));
+                setNumberSection('4');
+            }
+            else{
+                alert('Должно быть хотя бы одно вознаграждение !');
+            }
+    }
+
     const removeElement = (key : number) => {
         setRewards(rewards.filter((element) => Number(element.key) !== key));
       };
@@ -92,7 +108,10 @@ export function SectionTree(){
                 >
                     Добавить
                 </button>
-                <button className={style.sub_button}>
+                <button 
+                    className={style.sub_button}
+                    onClick={()=>changeSection()}
+                >
                     Завершить заполнение
                 </button>
             </div>

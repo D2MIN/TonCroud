@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import style from './SectionOne.module.scss';
+import { useDispatch } from "react-redux";
+import { setProjectDetails } from "../../../Store/AllSlices/projectSlice";
 
 interface sectionPropsI{
     setNumberSection : (section: string) => void
 }
 
 export function SectionOne({setNumberSection} : sectionPropsI){
+
+    const dispatch = useDispatch();
     const [img, setImg] = useState(null);
     const [prevImg, setPrevImg] = useState('');
 
@@ -28,7 +32,15 @@ export function SectionOne({setNumberSection} : sectionPropsI){
 
     const changeSection = ()=>{
         if(name.replaceAll(' ', '') != ''  && descript.replaceAll(' ', '') && sum > 0 && date != '' && img != ''){
-            setNumberSection('2') 
+            dispatch(setProjectDetails({
+                name: name,
+                image: prevImg,
+                smallDescript: descript,
+                totalSum: sum,
+                date: date
+            }));
+            
+            setNumberSection('2');
         }
         else{
             alert('Вы заполнили форму не правильно !');

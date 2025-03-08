@@ -1,16 +1,21 @@
+import { useDispatch } from 'react-redux';
 import style from './SectionTwo.module.scss';
 import React, { useState } from 'react';
+import { setBigDescription } from '../../../Store/AllSlices/projectSlice';
 
 interface sectionPropsI{
     setNumberSection : (section: string) => void
 }
 
 export function SectionTwo({setNumberSection}:sectionPropsI){
+    
+    const dispatch = useDispatch();
     const [fullDescript, setFullDescript] = useState<string>('');
 
     const changeSection = ()=>{
         if(fullDescript.replaceAll(' ', '') != ''){
-            setNumberSection('3') 
+            dispatch(setBigDescription(fullDescript));
+            setNumberSection('3');
         }
         else{
             alert('Вы заполнили форму не правильно !');
