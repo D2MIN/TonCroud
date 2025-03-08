@@ -1,5 +1,5 @@
 import style from './SectionThree.module.scss';
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 
 export function SectionTree(){
 
@@ -11,41 +11,27 @@ export function SectionTree(){
     const [rewards, setRewards] = useState<React.JSX.Element[]>([]);
 
     
-    // ДОДЕЛАТЬ УДАЛЕНИЕ ЭЛЕМЕНТА (ПОЧЕМУ ТО ПРИХОДИТ reward РАЗМЕРА index)
-    const del_reward = (index : number)=>{
-        let rewardCopy = [...rewards]
-        let rewardList : React.JSX.Element[] = [];
-        console.log(rewardCopy);
-        for(let i = 0; i <= rewardCopy.length; i++){
-            // if(i != index){
-            //     rewardList.push(rewardCopy[i]);
-            // }
-        }
-        // setRewards(rewardList);
-    }
+    // ДОДЕЛАТЬ УДАЛЕНИЕ ЭЛЕМЕНТА (ПОЧЕМУ ТО  reward РАЗМЕРА index)
+    const removeElement = (key : number) => {
+        setRewards(rewards.filter((element) => Number(element.key) !== key));
+      };
 
-    const add_reward = () => {
+    function add_reward(){
         let rewardList = [...rewards];
-        let key = Date.now();
-        if(name.replaceAll(' ','') != '' && descript.replaceAll(' ','') != '' && (count > 0 || countFlag == true)){
+        let key = Date.now() + Math.random();
+        if (name.replaceAll(' ', '') != '' && descript.replaceAll(' ', '') != '' && (count || countFlag == true)) {
             rewardList.push(
-                <div key={key + Math.random()} className={style.reward}>
-                        <div>
-                            <p>{name}</p>
-                            <p>{countFlag ? 'Не ограничено' : count + 'шт'}</p>
-                        </div>
-                        <button
-                            className={style.del_button}
-                            onClick={()=>{del_reward(rewardList.length - 1)}}
-                        >
-                            Удалить
-                        </button>
+                <div key={key} className={style.reward}>
+                    <div>
+                        <p>{name}</p>
+                        <p>{countFlag ? 'Не ограничено' : count + 'шт'}</p>
+                    </div>
                 </div>
-            )
-            setRewards(rewardList);
+            );
         }else{
             alert('Вы заполнили форму не правильно !');
         }
+        setRewards(rewardList);
     }
 
     return(
@@ -85,7 +71,9 @@ export function SectionTree(){
                         className={style.count}
                         placeholder='200'
                         value = {countFlag ? 0 : count}
-                        onChange={(e)=>setCount(e.target.value)}
+                        onChange={(e)=> {
+                            if(Number(e.target.value) >= 0) setCount(Number(e.target.value))
+                        }}
                     />
                     <label>
                         <input 
@@ -114,7 +102,14 @@ export function SectionTree(){
                 : <p>Вознаграждения отсутствуют</p>
                 }
                 <div className={style.all_reward}>
-                    {rewards}
+                    {rewards.map((el) => (
+                        <div className={style.element} key={el.key}>
+                            {el}
+                            <button className={style.del_button} onClick={() => removeElement(Number(el.key))}>
+                            Удалить
+                            </button>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -13,8 +13,8 @@ function CreateProject(){
     };
     return(
         <>
-            {sections[numberSection]}
-            {/* <SectionTree setNumberSection={setNumberSection} /> */}
+            {/* {sections[numberSection]} */}
+            <SectionTree setNumberSection={setNumberSection} />
         </>
     );
 }

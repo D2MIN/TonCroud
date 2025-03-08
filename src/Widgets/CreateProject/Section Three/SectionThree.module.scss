@@ -131,19 +131,25 @@
             p{
                 font-size: 16px;
             }
+        }
+    }
+}
 
-            .del_button{
-                height: 25px;
-                width: 80px;
-                background-color: #b42a2a;
-                color: #fff;
-                border-radius: 5px;
-                border: none;
+.element{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
 
-                &:hover{
-                    background-color: #b42a2ab5;
-                }
-            }
+    .del_button{
+        height: 25px;
+        width: 80px;
+        background-color: #b42a2a;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+    
+        &:hover{
+            background-color: #b42a2ab5;
         }
     }
 }
