@@ -13,14 +13,16 @@ export function SectionTree({setNumberSection}:sectionPropsI){
 
     const [name, setName] = useState<string>('');
     const [descript, setDescript] = useState<string>('');
-    const [count, setCount] = useState<number>()
+    const [count, setCount] = useState<number | string>()
+    const [rewardCell, setReawrdCell] = useState<number>();
 
     const [countFlag, setCountFlag] = useState<boolean>(false);
     const [rewards, setRewards] = useState<React.JSX.Element[]>([]);
+    const [rewardsInfo, setRewardsInfo] = useState([]);
 
     const changeSection = ()=>{
             if(rewards.length > 0){
-                dispatch(setAllRewards(rewards));
+                dispatch(setAllRewards(rewardsInfo));
                 setNumberSection('4');
             }
             else{
@@ -33,13 +35,16 @@ export function SectionTree({setNumberSection}:sectionPropsI){
       };
 
     function add_reward(){
+        let countReward = count;
+        if(countFlag) countReward = 'Не ограничено';
+        setRewardsInfo(rewardsInfo.concat({name : name, descript: descript, count: countReward, cell : rewardCell}))
         let rewardList = [...rewards];
         let key = Date.now() + Math.random();
         if (name.replaceAll(' ', '') != '' && descript.replaceAll(' ', '') != '' && (count || countFlag == true)) {
             rewardList.push(
                 <div key={key} className={style.reward}>
                     <div>
-                        <p>{name}</p>
+                        <strong>{name}</strong>
                         <p>{countFlag ? 'Не ограничено' : count + 'шт'}</p>
                     </div>
                 </div>
@@ -100,6 +105,14 @@ export function SectionTree({setNumberSection}:sectionPropsI){
                         <p>Не ограничено</p>
                     </label>
                 </div>
+            </div>
+            <div className={style.rewardCell}>
+                <p>Сумма пожертвования для награды</p>
+                <input
+                    placeholder='10 TON' 
+                    type='number'
+                    onChange={(e)=>setReawrdCell(Number(e.target.value))}
+                />
             </div>
             <div className={style.button_section}>
                 <button 
