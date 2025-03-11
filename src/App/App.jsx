@@ -6,6 +6,8 @@ import AllProjects from '../Pages/AllProjects/AllProjects.tsx';
 import CreateProject from '../Pages/CreateProject/CreateProject.jsx';
 import { Provider } from 'react-redux';
 import { store } from '../Store/store.js';
+import { TonConnectUIProvider } from '@tonconnect/ui-react';
+
 
 const MyRouter = createBrowserRouter([
   {
@@ -30,11 +32,13 @@ const MyRouter = createBrowserRouter([
 
 function App() {
   return (
-    <div className={style.app_component}>
-      <Provider store={store}>
-        <RouterProvider router={MyRouter}/>
-      </Provider>
-    </div>
+    <TonConnectUIProvider manifestUrl='https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json'>
+      <div className={style.app_component}>
+        <Provider store={store}>
+          <RouterProvider router={MyRouter}/>
+        </Provider>
+      </div>
+    </TonConnectUIProvider>
   );
 }
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { LoginButton } from '../../Features/LoginButton/LoginButton';
 import style from './Header.module.scss';
 import React, { useState } from 'react';
+import { TonConnectButton } from '@tonconnect/ui-react';
 
 export function Header(){
     const [burgerStatus, setBurgerStatus] = useState('start_burger');

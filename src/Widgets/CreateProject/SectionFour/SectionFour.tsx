@@ -1,6 +1,7 @@
 import React from "react";
 import style from './SectionFour.module.scss';
 import { useSelector } from "react-redux";
+import { TransactionButton } from "../../../Features/TransactionButton/TransactionButton.tsx";
 
 interface ProjectState {
     name: string;
@@ -59,10 +60,8 @@ export function SectionFour(){
                 </ul>
             </div>
             <div className={style.button_section}>
-                    <button>
-                        Создать проект
-                    </button>
-                    <p className={style.createSum}>Для создания нужно 34.218 TON</p>
+                    <TransactionButton title = "Создать проект"/>
+                    <p className={style.createSum}>Для создания нужно 0.218 TON</p>
             </div>
         </div>
     );

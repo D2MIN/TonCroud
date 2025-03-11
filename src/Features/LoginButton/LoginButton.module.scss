@@ -1,7 +1,10 @@
 .login_section{
     .button{
-        padding: 8px;
+        position: relative;
+        z-index: 1;
         width: 150px;
+        height: 40px;
+        padding: 8px;
         background-color: #0040FF;
         border-radius: 10px;
         font-family: monospace;
@@ -10,7 +13,46 @@
         border: 0px;
 
         &:hover{
-            background-color: #0040ff76;
+            background-color: #0130bb;
         }
+    }
+
+    .copyAdress, .exit{
+        font-size: 14px;
+        width: 100%;
+        height: 40px;
+        border: 0px;
+        border-radius: 5px;
+        color: #fff;
+        background-color: rgb(33, 33, 33);
+        margin-top: 5px;
+
+        &:hover{
+            background-color: rgb(70, 70, 70);
+        }
+    }
+
+    .copyAnimation{
+        animation: copyAnimation 1s ease-in-out;
+    }
+
+    .suportButtons{
+        width: 150px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@keyframes copyAnimation{
+    0%{
+        background-color: rgb(33, 33, 33);
+    }
+    50%{
+        background-color: green;
+    }
+    100%{
+        background-color: rgb(33, 33, 33);
     }
 }

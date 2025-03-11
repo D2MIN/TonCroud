@@ -7,7 +7,7 @@ export function Capsule(){
     return(
         <>
             <Header/>
-            <Outlet />
+                <Outlet />
             <Footer/>
         </>
     )
