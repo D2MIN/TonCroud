@@ -1,6 +1,8 @@
 import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
 import style from './TransactionButton.module.scss';
-import React, { cache } from 'react';
+import React, { cache, useState } from 'react';
+import { MdDownloadDone } from 'react-icons/md';
+import { IoMdClose } from 'react-icons/io';
 
 interface PropsI{
     title : string,
@@ -10,6 +12,7 @@ export function TransactionButton({title} : PropsI){
     
     const wallet = useTonWallet();
     const [tonConnectUI, setOptions] = useTonConnectUI();
+    const [isSuccessSend, setIsSuccessSend] = useState<boolean | null>(null);
 
 
     async function sendTransaction(){
@@ -28,14 +31,40 @@ export function TransactionButton({title} : PropsI){
                     ]
                 });
             }catch (error) {
-                // console.log(error);
+                console.log(error);
             }
-            console.log(status);
+            if(status != undefined){
+                setIsSuccessSend(true);
+            }else{
+                setIsSuccessSend(false);
+            }
         }
+    }
+
+    function closePopap(){
+        setIsSuccessSend(null);
     }
 
     return(
         <div className={style.TransactionButton}>
+            {isSuccessSend != null ? 
+                <div className={style.sendStatus}>
+                    <div className={style.statusPopap}>
+                        <div className={style.iconStatus}>
+                            {isSuccessSend ? <MdDownloadDone/> : <IoMdClose /> }
+                        </div>
+                        <h4>{isSuccessSend ? 'Операция прошла успешно' : 'Операция не была успешной'}</h4>
+                        <button
+                            className={style.closePopapButton}
+                            onClick={closePopap}
+                            >
+                            Закрыть
+                        </button>
+                    </div>
+                    <div onClick={closePopap} className={style.backPopap}></div>
+                </div>
+            : ''    
+            }
             <button
                 onClick={sendTransaction}
             >
