@@ -1,0 +1,46 @@
+// Стили для блока с наградами
+.projectRewards {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  
+    // Стили для таблицы
+    .reward {
+      width: 100%;
+      border-collapse: collapse; // Убираем двойные границы
+      font-size: 1rem;
+      color: #333;
+  
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0; // Граница между строками
+      }
+  
+      th {
+        background-color: #2c3e50; // Темный фон для заголовков
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase; // Заголовки в верхнем регистре
+      }
+  
+      tr {
+        transition: background-color 0.2s;
+  
+        &:hover {
+          background-color: #f9f9f9; // Подсветка строки при наведении
+        }
+      }
+  
+      td {
+        color: #555;
+  
+        &:last-child {
+          font-weight: bold; // Жирный шрифт для цен
+          color: #2c3e50;
+        }
+      }
+    }
+  }

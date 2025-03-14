@@ -6,9 +6,10 @@ import { IoMdClose } from 'react-icons/io';
 
 interface PropsI{
     title : string,
+    TonValue : number,
 }
 
-export function TransactionButton({title} : PropsI){
+export function TransactionButton({title,TonValue = 0.1} : PropsI){
     
     const wallet = useTonWallet();
     const [tonConnectUI, setOptions] = useTonConnectUI();
@@ -26,7 +27,7 @@ export function TransactionButton({title} : PropsI){
                     messages: [
                         {
                             address : "0QD-SuoCHsCL2pIZfE8IAKsjc0aDpDUQAoo-ALHl2mje04A-",
-                            amount: '218000000'
+                            amount: `${TonValue * 1_000_000_000}`
                         }
                     ]
                 });

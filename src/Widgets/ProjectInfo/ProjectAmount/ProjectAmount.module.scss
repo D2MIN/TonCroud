@@ -1,0 +1,83 @@
+// Стили для блока с прогресс-баром и информацией
+.projectAmount {
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+
+    // Стили для линии прогресса (input range)
+    .line {
+      width: 100%;
+      margin-bottom: 15px;
+  
+      input[type="range"] {
+        // -webkit-appearance: none; // Убираем стандартные стили
+        width: 100%;
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+  
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  
+    // Стили для блока с информацией о собранной сумме
+    .amountInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1rem;
+        color: #333;
+    
+        p {
+            margin: 0;
+    
+            strong {
+            color: #2289ff;
+            font-size: 1.2rem;
+            }
+        }
+    }
+  }
+  
+  // Адаптивные стили для мобильных устройств
+  @media (max-width: 768px) {
+    .projectAmount {
+      padding: 15px;
+  
+      .amountInfo {
+        align-items: flex-start;
+        gap: 10px;
+  
+        p {
+          font-size: 1rem;
+  
+          strong {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+@media (max-width: 390px) {
+  .projectAmount{
+
+    .amountInfo{
+      p {
+        font-size: 12px;
+  
+        strong {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

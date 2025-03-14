@@ -7,6 +7,7 @@ import CreateProject from '../Pages/CreateProject/CreateProject.jsx';
 import { Provider } from 'react-redux';
 import { store } from '../Store/store.js';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
+import ProjectInfo from '../Pages/ProjectInfo/ProjectInfo.tsx';
 
 
 const MyRouter = createBrowserRouter([
@@ -25,6 +26,10 @@ const MyRouter = createBrowserRouter([
       {
         path : 'createproject',
         element : <CreateProject/>
+      },
+      {
+        path : 'project',
+        element : <ProjectInfo/>
       }
     ]
   }

@@ -77,3 +77,13 @@
 strong{
     color: #1565C0;
 }
+
+.ProjectCard_wrapper{
+    a{
+        color: #000;
+        text-decoration: none;
+        &:hover{
+            color: #000;
+        }
+    }
+}
