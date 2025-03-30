@@ -3,7 +3,7 @@ import style from './CreateProject.module.scss';
 import { SectionOne } from "../../Widgets/CreateProject/SectionOne/SectionOne.tsx";
 import { SectionTwo } from "../../Widgets/CreateProject/SectionTwo/SectionTwo.tsx";
 import { SectionTree } from "../../Widgets/CreateProject/SectionThree/SectionThree.tsx";
-import { SectionFour } from "../../Widgets/CreateProject/SectionFour/SectionFour.tsx";
+import { SectionFour } from "../../Widgets/CreateProject/SectionFour/UI/SectionFour.tsx";
 
 function CreateProject(){
     const [numberSection, setNumberSection] = useState('1');

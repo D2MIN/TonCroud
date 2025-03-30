@@ -32,15 +32,20 @@ export function SectionTree({setNumberSection}:sectionPropsI){
 
     const removeElement = (key : number) => {
         setRewards(rewards.filter((element) => Number(element.key) !== key));
+        setRewardsInfo(rewardsInfo.filter( el => Number(el.id) !== key))
       };
 
     function add_reward(){
         let countReward = count;
         if(countFlag) countReward = 'Не ограничено';
-        setRewardsInfo(rewardsInfo.concat({name : name, descript: descript, count: countReward, cell : rewardCell}))
+        
         let rewardList = [...rewards];
         let key = Date.now() + Math.random();
-        if (name.replaceAll(' ', '') != '' && descript.replaceAll(' ', '') != '' && (count || countFlag == true)) {
+        
+        if (name.replaceAll(' ', '') != '' && descript.replaceAll(' ', '') != '' && rewardCell != undefined && rewardCell > 0 && (count || countFlag == true)) {
+            
+            setRewardsInfo(rewardsInfo.concat({name : name, descript: descript, count: countReward, cell : rewardCell, id : key}));
+            
             rewardList.push(
                 <div key={key} className={style.reward}>
                     <div>

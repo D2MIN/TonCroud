@@ -1,7 +1,7 @@
 import React from "react";
 import style from './SectionFour.module.scss';
 import { useSelector } from "react-redux";
-import { TransactionButton } from "../../../Features/TransactionButton/TransactionButton.tsx";
+import { TransactionButton } from "../../../../Features/TransactionButton/TransactionButton.tsx";
 
 interface ProjectState {
     name: string;

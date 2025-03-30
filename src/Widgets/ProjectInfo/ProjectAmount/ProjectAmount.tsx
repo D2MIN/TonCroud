@@ -3,18 +3,19 @@ import React from 'react';
 
 interface AmountPropsI{
     tottal : number,
+    current : number,
     procent : number
 }
 
-export function ProjectAmount({tottal,procent} : AmountPropsI){
+export function ProjectAmount({tottal,current,procent} : AmountPropsI){
     return(
         <>
             <div className={style.projectAmount}>
                 <div className={style.line}>
-                    <input type="range" min={0} max={100} defaultValue={73}/>
+                    <progress value={current} max={tottal} defaultValue={procent}/>
                 </div>
                 <div className={style.amountInfo}>
-                    <p>Собрано: <strong>{tottal} TON</strong></p>
+                    <p>Собрано: <strong>{current} TON</strong></p>
                     <p><strong>{procent}%</strong></p>
                 </div>
             </div>
