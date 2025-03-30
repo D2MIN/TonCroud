@@ -6,11 +6,4 @@ export async function GetData(id){
     }catch(error){
         return(error);
     }
-    // fetch(`http://localhost:7777/api/project/${id}`, {
-    //     method : "GET",
-    //     headers : {
-    //         "Content-Type" : "application-json",
-    //     },
-    //     body : JSON.stringify({id : id})
-    // })
 }

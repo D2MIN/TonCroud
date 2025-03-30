@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './SectionFour.module.scss';
 import { useSelector } from "react-redux";
 import { TransactionButton } from "../../../../Features/TransactionButton/TransactionButton.tsx";
+import { CreateProject } from "../BL/CreateProject.ts";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectState {
     name: string;
@@ -19,9 +21,17 @@ interface RootState {
 
 export function SectionFour(){
 
-    const project = useSelector((state : RootState) => state.project);
+    const project : ProjectState = useSelector((state : RootState) => state.project);
+    const [transactionStatus, setTransactionStatus] = useState();
+    const navigate = useNavigate();
 
-    console.log(project.rewards);
+    useEffect(()=>{
+        if(transactionStatus?.boc){
+            CreateProject(project);
+            navigate('/')
+        }
+    },[transactionStatus]);
+
     return (
         <div className={style.SectionFour}>
             <h1>Ваш проект</h1>
@@ -60,7 +70,7 @@ export function SectionFour(){
                 </ul>
             </div>
             <div className={style.button_section}>
-                    <TransactionButton title = "Создать проект"/>
+                    <TransactionButton setStatus={setTransactionStatus} TonValue = {0.1} title = "Создать проект"/>
                     <p className={style.createSum}>Для создания нужно 0.218 TON</p>
             </div>
         </div>

@@ -7,9 +7,10 @@ import { IoMdClose } from 'react-icons/io';
 interface PropsI{
     title : string,
     TonValue : number,
+    setStatus : (status)=>{}
 }
 
-export function TransactionButton({title,TonValue = 0.1} : PropsI){
+export function TransactionButton({title,TonValue, setStatus} : PropsI){
     
     const wallet = useTonWallet();
     const [tonConnectUI, setOptions] = useTonConnectUI();
@@ -35,6 +36,7 @@ export function TransactionButton({title,TonValue = 0.1} : PropsI){
                 console.log(error);
             }
             if(status != undefined){
+                setStatus(status);
                 setIsSuccessSend(true);
             }else{
                 setIsSuccessSend(false);
