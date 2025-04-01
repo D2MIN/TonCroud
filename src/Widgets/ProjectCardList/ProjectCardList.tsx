@@ -6,6 +6,7 @@ export function ProjectCardList(){
 
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
+    const [status, setStatus] = useState<number>(500);
     const [data, setData] = useState();
     const [projectList, setProjectList] = useState<ReactElement[]>();
 
@@ -14,6 +15,7 @@ export function ProjectCardList(){
             try {
                 const res = await fetch('http://localhost:7777/api/project/all');
                 if(!res.ok){
+                    setStatus(res.status)
                     throw new Error(`HTTP Error! Status: ${res.status} Massage : ${res.json()}`);
                 }
                 const result = await res.json();
@@ -54,7 +56,9 @@ export function ProjectCardList(){
 
 
     if (loading) return <h1>Loading ...</h1>
-    if (error) return <h1>Error</h1>
+    if(status != 500) return <h1>Данных еще нет :( </h1>
+    if (error) return <h1>Простите, но сервер сейчас недоступен</h1>
+    
     return(
         <div className={style.ProjectCardList}>
             <div className={style.project_list}>
