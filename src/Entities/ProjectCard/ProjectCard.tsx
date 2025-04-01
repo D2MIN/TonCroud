@@ -3,6 +3,7 @@ import style from './ProjectCard.module.scss';
 import { Link } from 'react-router-dom';
 
 interface ProjectCardPropsI{
+    id : number
     image : string,
     name : string,
     descript : string,
@@ -10,13 +11,14 @@ interface ProjectCardPropsI{
     endpoint : number
 }
 
-export function ProjectCard(props : ProjectCardPropsI){
+export function ProjectCard( props : ProjectCardPropsI){
+
     return(
         <div className={style.ProjectCard_wrapper}>
-                <Link to={'/project'}>
+                <Link to={`/project/${props.id}`}>
                     <div className={style.ProjectCard}>
                         <div className={style.project_image}>
-                            <img src={props.image} alt="" />
+                            <img src={props.image} alt="Фото проекта" />
                         </div>
                         <div className={style.project_name}>
                             {props.name}

@@ -16,7 +16,6 @@ function CreateProject(){
     return(
         <>
             {sections[numberSection]}
-            {/* <SectionFour/> */}
         </>
     );
 }

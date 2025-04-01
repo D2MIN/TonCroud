@@ -1,6 +1,9 @@
 .project_list{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;   
+}
+.project_list_div{
+    display: inline;
 }
 
 @media(max-width: 1079px){

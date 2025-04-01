@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './AllProjects.module.scss';
-import { ProjectCardList } from '../../Widgets/ProjectCardList/ProjectCardList.jsx';
+import { ProjectCardList } from '../../Widgets/ProjectCardList/ProjectCardList.tsx';
 
 function AllProjects(){
     return(
