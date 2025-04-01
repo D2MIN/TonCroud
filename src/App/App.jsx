@@ -8,12 +8,14 @@ import { Provider } from 'react-redux';
 import { store } from '../Store/store.js';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import ProjectInfo from '../Pages/ProjectInfo/UI/ProjectInfo.tsx';
+import { ErrorPage } from './ErrorPage/ErrorPage.jsx';
 
 
 const MyRouter = createBrowserRouter([
   {
     path : '/',
     element : <Capsule/>,
+    errorElement : <ErrorPage/>,
     children : [
       {
         path : '/',

@@ -26,6 +26,7 @@ export function Header(){
                         </ul>
                     </div>
                 </div>
+
                 <div 
                     className={style[burgerStatus]}
                     onClick={()=>{
@@ -38,10 +39,13 @@ export function Header(){
                             setBurgerStatus('open_burger');
                     }}
                 >
-                    <div className={`${style.line} ${style.line_1}`}></div>
-                    <div className={`${style.line} ${style.line_2}`}></div>
-                    <div className={`${style.line} ${style.line_3}`}></div>
+                    <div className={style.line_wrapper}>
+                        <div className={`${style.line} ${style.line_1}`}></div>
+                        <div className={`${style.line} ${style.line_2}`}></div>
+                        <div className={`${style.line} ${style.line_3}`}></div>
+                    </div>
                 </div>
+
                 <div className={style.siteName}>
                     <h1>TonCroud</h1>
                 </div>

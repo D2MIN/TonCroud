@@ -10,84 +10,103 @@
     }
 
     .start_burger{
-        z-index: 2;
-        cursor: pointer;
-        background-color: #ffffff;
-        width: 50px;
-        height: 50px;
+        width: 190px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        
-        .line{
-            width: 40px;
-            margin: 3px 0px;
-            height: 4px;
-            background-color: #000000;
+
+        .line_wrapper{
+            z-index: 2;
+            cursor: pointer;
+            background-color: #ffffff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
             
+            .line{
+                width: 40px;
+                margin: 3px 0px;
+                height: 4px;
+                background-color: #000000;
+                
+            }
         }
     }
 
+
     .close_burger{
+        width: 190px;
         z-index: 2;
-        cursor: pointer;
-        background-color: #ffffff;
-        width: 50px;
-        height: 50px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        
-        .line{
-            width: 40px;
-            margin: 3px 0px;
-            height: 4px;
-            background-color: #000000;
+
+        .line_wrapper{
+            cursor: pointer;
+            background-color: #ffffff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
             
+            .line{
+                width: 40px;
+                margin: 3px 0px;
+                height: 4px;
+                background-color: #000000;
+                
+            }
         }
 
         .line_1{
-            animation: closeLine1 1s ease forwards;
+            animation: closeLine1 0.3s ease forwards;
         }
         .line_3{
-            animation: closeLine3 1s ease forwards;
+            animation: closeLine3 0.3s ease forwards;
         }
         .line_2{
-            animation: closeLine2 1s ease forwards;
+            animation: closeLine2 0.3s ease forwards;
         }
     }
 
     .open_burger{
-        cursor: pointer;
-        z-index: 2;
-        background-color: #ffffff;
-        width: 50px;
-        height: 50px;
+        width: 190px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        
-        .line{
-            width: 40px;
-            margin: 3px 0px;
-            height: 4px;
-            background-color: #000000;   
+        z-index: 2;
+        .line_wrapper{
+            cursor: pointer;
+            background-color: #ffffff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            
+            .line{
+                width: 40px;
+                margin: 3px 0px;
+                height: 4px;
+                background-color: #000000;
+                
+            }
         }
 
         .line_1{
-            animation: openLine1 1s ease forwards;
+            animation: openLine1 0.3s ease forwards;
         }
         .line_3{
-            animation: openLine3 1s ease forwards;
+            animation: openLine3 0.3s ease forwards;
         }
         .line_2{
-            animation: openLine2 1s ease forwards;
+            animation: openLine2 0.3s ease forwards;
         }
     }
 
@@ -100,7 +119,7 @@
 
 .open_menu{
     z-index: 1;
-    animation: openMenu 1s ease forwards;
+    animation: openMenu 0.3s ease forwards;
     height: 500px;
     background-color: #0D1B2A;
     position: absolute;
@@ -152,7 +171,7 @@
 
 .close_menu{
     z-index: 1;
-    animation: closeMenu 1s forwards;
+    animation: closeMenu 0.2s forwards;
     height: 500px;
     background-color: #0D1B2A;
     position: absolute;
