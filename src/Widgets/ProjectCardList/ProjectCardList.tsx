@@ -55,7 +55,7 @@ export function ProjectCardList(){
     }
 
 
-    if (loading) return <h1>Loading ...</h1>
+    if (loading) return <h1>Загрузка ...</h1>
     if(status != 500) return <h1>Данных еще нет :( </h1>
     if (error) return <h1>Простите, но сервер сейчас недоступен</h1>
     
@@ -63,7 +63,6 @@ export function ProjectCardList(){
         <div className={style.ProjectCardList}>
             <div className={style.project_list}>
                 {data && projectList }
-                {/* {project} */}
             </div>
         </div>
     )

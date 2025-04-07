@@ -7,11 +7,12 @@ import { SectionFour } from "../../Widgets/CreateProject/SectionFour/UI/SectionF
 
 function CreateProject(){
     const [numberSection, setNumberSection] = useState('1');
+    const [file, setFile] = useState();
     const sections = {
-        '1' : <SectionOne setNumberSection={setNumberSection} />, 
+        '1' : <SectionOne setFile={setFile} setNumberSection={setNumberSection} />, 
         '2' : <SectionTwo setNumberSection={setNumberSection} />,
         '3' : <SectionTree setNumberSection={setNumberSection} />,
-        '4' : <SectionFour/>
+        '4' : <SectionFour file={file}/>
     };
     return(
         <>

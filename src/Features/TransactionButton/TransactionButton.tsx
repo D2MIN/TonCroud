@@ -7,7 +7,7 @@ import { IoMdClose } from 'react-icons/io';
 interface PropsI{
     title : string,
     TonValue : number,
-    setStatus : (status)=>{}
+    setStatus : ( status )=> void
 }
 
 export function TransactionButton({title,TonValue, setStatus} : PropsI){

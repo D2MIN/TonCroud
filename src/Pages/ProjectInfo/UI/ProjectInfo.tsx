@@ -39,6 +39,7 @@ function ProjectInfo(){
                 const answer = await GetData(id);
                 if(answer){
                     setData(answer.data);
+                    console.log(answer.data)
                     setLoading(false);
                 }
             } catch (error) {

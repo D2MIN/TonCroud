@@ -5,6 +5,14 @@ import { TransactionButton } from "../../../../Features/TransactionButton/Transa
 import { CreateProject } from "../BL/CreateProject.ts";
 import { useNavigate } from "react-router-dom";
 
+
+interface rewardI{
+    name : string,
+    descript : string,
+    count : string,
+    cell : string,
+}
+
 interface ProjectState {
     name: string;
     image: string;
@@ -12,14 +20,14 @@ interface ProjectState {
     totalSum: number;
     date: string;
     bigDescript: string;
-    rewards: string[];
+    rewards: rewardI[];
 }
 
 interface RootState {
     project: ProjectState; 
 }
 
-export function SectionFour(){
+export function SectionFour(file : File){
 
     const project : ProjectState = useSelector((state : RootState) => state.project);
     const [transactionStatus, setTransactionStatus] = useState();
@@ -27,7 +35,7 @@ export function SectionFour(){
 
     useEffect(()=>{
         if(transactionStatus?.boc){
-            CreateProject(project);
+            CreateProject(project,file);
             navigate('/')
         }
     },[transactionStatus]);

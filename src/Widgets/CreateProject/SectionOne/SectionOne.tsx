@@ -6,8 +6,16 @@ import { setProjectDetails } from "../../../Store/AllSlices/projectSlice";
 interface sectionPropsI{
     setNumberSection : (section: string) => void
 }
+interface setFileI{
+    setFile : (file : File) => void 
+}
 
-export function SectionOne({setNumberSection} : sectionPropsI){
+interface functionI{
+    setNumberSection : sectionPropsI,
+    setFile : setFileI
+}
+
+export function SectionOne({setNumberSection, setFile} : functionI){
 
     const dispatch = useDispatch();
     const [img, setImg] = useState(null);
@@ -16,15 +24,14 @@ export function SectionOne({setNumberSection} : sectionPropsI){
     const [descript, setDescript] = useState<string>('');
     const [aboutError, setAboutError] = useState<boolean>(false);
 
-    // Переделать на redux !!!
     const [name, setName] = useState<string>('');
     const [sum, setSum] = useState<number>(0);
     const [date, setDate] = useState<string>('');
 
     const handleImageChange = (e)=>{
         const file = e.target.files[0];
-        console.log(file)
         if(file){
+            setFile(file);
             setImg(file);
             setPrevImg(URL.createObjectURL(file));
         }

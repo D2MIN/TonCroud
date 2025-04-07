@@ -15,7 +15,7 @@ export const projectSlice = createSlice({
     initialState : initialState,
     reducers : {
         setProjectDetails : (state,action) => {
-            const {name,image,smallDescript,totalSum,date} = action.payload;
+            const {name,image,file,smallDescript,totalSum,date} = action.payload;
             state.name = name;
             state.image = image;
             state.smallDescript = smallDescript;

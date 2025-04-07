@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "@babel/plugin-proposal-private-property-in-object" : "^7.21.11",
     "@tonconnect/ui-react": "^2.0.12",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
