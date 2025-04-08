@@ -34,6 +34,7 @@ export function SectionFour(file : File){
     const navigate = useNavigate();
 
     useEffect(()=>{
+        // transactionStatus?.boc
         if(transactionStatus?.boc){
             CreateProject(project,file);
             navigate('/')
@@ -78,7 +79,7 @@ export function SectionFour(file : File){
                 </ul>
             </div>
             <div className={style.button_section}>
-                    <TransactionButton setStatus={setTransactionStatus} TonValue = {0.1} title = "Создать проект"/>
+                    <TransactionButton setStatus={setTransactionStatus} TonValue = {0.01} title = "Создать проект"/>
                     <p className={style.createSum}>Для создания нужно 0.218 TON</p>
             </div>
         </div>
