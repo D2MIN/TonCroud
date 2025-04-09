@@ -1,6 +1,6 @@
 import { TransactionButton } from '../../../Features/TransactionButton/TransactionButton.tsx';
 import { ProjectAmount } from '../../../Widgets/ProjectInfo/ProjectAmount/ProjectAmount.tsx';
-import { ProjectRewards } from '../../../Widgets/ProjectInfo/ProjectRewards/ProjectRewards.tsx';
+import { ProjectRewards } from '../../../Widgets/ProjectInfo/ProjectRewards/UI/ProjectRewards.tsx';
 import { ProjectTitles } from '../../../Widgets/ProjectInfo/ProjectTitles/ProjectTitle.tsx';
 import style from './ProjectInfo.module.scss';
 import React, { useEffect, useState } from 'react';
@@ -39,7 +39,6 @@ function ProjectInfo(){
                 const answer = await GetData(id);
                 if(answer){
                     setData(answer.data);
-                    console.log(answer.data)
                     setLoading(false);
                 }
             } catch (error) {
@@ -49,8 +48,6 @@ function ProjectInfo(){
         
         getData();
     }, [id]);
-
-    if(loading) return <div>LOADING ...</div>
  
     return(
         data ? 
