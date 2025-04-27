@@ -6,7 +6,7 @@ function AllProjects(){
     return(
         <div className={style.AllProjectsPage}>
             <h1 className={style.title}>TonCroud проекты</h1>
-            <div className={style.filters}>ПОИСК и ФИЛЬТРАЦИЯ</div>
+            {/* <div className={style.filters}>ПОИСК и ФИЛЬТРАЦИЯ</div> */}
             <div className={style.project_list_section}>
                 <div className={style.project_list}>
                     <ProjectCardList/>

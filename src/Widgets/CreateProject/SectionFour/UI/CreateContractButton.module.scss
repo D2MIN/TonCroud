@@ -1,0 +1,19 @@
+.CreateContractButton{
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+
+    button{
+        border-radius: 10px;
+        border: 0px;
+        background-color: #0130bb;
+        color: #fff;
+        font-size: 20px;
+        width: 100%;
+        height: 100%;
+    
+        &:hover{
+            background-color: #00207e;
+        }
+    }
+}

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { LoginButton } from '../../Features/LoginButton/LoginButton';
 import style from './Header.module.scss';
 import React, { useState } from 'react';
-import { TonConnectButton } from '@tonconnect/ui-react';
 
 export function Header(){
     const [burgerStatus, setBurgerStatus] = useState('start_burger');
@@ -17,12 +16,42 @@ export function Header(){
                     </div>
                     <div className={style.menu_links}>
                         <ul>
-                            <li><Link to="/">Главная</Link></li>
-                            <li><Link to="projects">Все проекты</Link></li>
-                            <li><Link to="createproject">Создать проект</Link></li>
-                            <li><Link to="statistic">Статистика</Link></li>
-                            <li><Link to="awards">Награды</Link></li>
-                            <li><Link to="about">О нас</Link></li>
+                            <li>
+                                <Link to="/" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>Главная</Link>
+                            </li>
+                            <li>
+                                <Link to="projects" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>Все проекты</Link>
+                            </li>
+                            <li>
+                                <Link to="createproject" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>Создать проект</Link>
+                            </li>
+                            <li>
+                                <Link to="statistic" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>Статистика</Link>
+                            </li>
+                            <li>
+                                <Link to="awards" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>Награды</Link>
+                            </li>
+                            <li>
+                                <Link to="about" onClick={()=>{
+                                setPopupStatus('close_menu') 
+                                setBurgerStatus('close_burger')
+                                }}>О нас</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

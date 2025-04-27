@@ -1,22 +1,31 @@
 import { useEffect, useState } from 'react';
 import style from './LoginButton.module.scss';
 import { useTonAddress, useTonConnectUI } from '@tonconnect/ui-react';
+import { CreateUser } from './BL/CreateUser';
 
 export function LoginButton() {
 
     const [tonConnectUI, setOptions] = useTonConnectUI();
-    const [adress, setAdress] = useState('');
+    const [adress, setAdress] = useState('...');
     const [isVisibleOptions, setIsVisibleOptions] = useState(false)
     const [isCopy, setIsCopy] = useState(false);
+
+    const [conneted, setConnected] = useState(false);
     let userFriendlyAddress = useTonAddress();
 
     const onClick = async () => {
         if(userFriendlyAddress == ''){
             await tonConnectUI.openModal();
+            tonConnectUI.onStatusChange( wallet => {
+                if(wallet){
+                    setConnected(true);
+                }else{
+                    setConnected(false);
+                }
+            })
         }
         if(userFriendlyAddress != ''){
             setIsVisibleOptions(!isVisibleOptions);
-
         }
     }
 
@@ -35,7 +44,16 @@ export function LoginButton() {
 
     useEffect(()=>{
         let len = userFriendlyAddress.length;
-        setAdress(userFriendlyAddress.slice(0,4) + '...' + userFriendlyAddress.slice(len-4,len))
+        if(len && conneted == true){
+            CreateUser(userFriendlyAddress);
+        }
+    }, [userFriendlyAddress]);
+
+    useEffect(()=>{
+        let len = userFriendlyAddress.length;
+        if(len){
+            setAdress(userFriendlyAddress.slice(0,4) + '...' + userFriendlyAddress.slice(len-4,len))
+        }
     }, [userFriendlyAddress])
 
     return (

@@ -9,7 +9,7 @@ import { store } from '../Store/store.js';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import ProjectInfo from '../Pages/ProjectInfo/UI/ProjectInfo.tsx';
 import { ErrorPage } from './ErrorPage/ErrorPage.jsx';
-
+import { CreateContractButton } from '../Widgets/CreateProject/SectionFour/UI/CreateContractButton.jsx';
 
 const MyRouter = createBrowserRouter([
   {
@@ -32,6 +32,10 @@ const MyRouter = createBrowserRouter([
       {
         path : 'project/:id',
         element : <ProjectInfo/>
+      },
+      {
+        path : 'testButton',
+        element : <CreateContractButton/>
       }
     ]
   }

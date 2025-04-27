@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { TransactionButton } from "../../../../Features/TransactionButton/TransactionButton.tsx";
 import { CreateProject } from "../BL/CreateProject.ts";
 import { useNavigate } from "react-router-dom";
+import { CreateContractButton } from "./CreateContractButton.jsx";
 
 
 interface rewardI{
@@ -39,6 +40,7 @@ export function SectionFour(file : File){
             CreateProject(project,file);
             navigate('/')
         }
+        console.log(transactionStatus)
     },[transactionStatus]);
 
     return (
@@ -79,7 +81,7 @@ export function SectionFour(file : File){
                 </ul>
             </div>
             <div className={style.button_section}>
-                    <TransactionButton setStatus={setTransactionStatus} TonValue = {0.01} title = "Создать проект"/>
+                    <CreateContractButton setTransactionStatus={setTransactionStatus}/>
                     <p className={style.createSum}>Для создания нужно 0.218 TON</p>
             </div>
         </div>

@@ -24,11 +24,12 @@
     height: 159px;
     padding-bottom: 14px;
     display: flex;
-    align-items: center;
+    align-items: start;
+    overflow: hidden;
     img{
         text-align: center;
         width: 322px;
-        height: 159;
+        // height: 159px;
         border-radius: 10px 10px 0px 0px;
     }
 }

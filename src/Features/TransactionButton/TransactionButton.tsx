@@ -1,4 +1,4 @@
-import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { SendTransactionRequest, useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
 import style from './TransactionButton.module.scss';
 import React, { cache, useState } from 'react';
 import { MdDownloadDone } from 'react-icons/md';
@@ -7,7 +7,7 @@ import { IoMdClose } from 'react-icons/io';
 interface PropsI{
     title : string,
     TonValue : number,
-    setStatus : ( status )=> void
+    setStatus : (status) => void
 }
 
 export function TransactionButton({title,TonValue, setStatus} : PropsI){
@@ -16,27 +16,32 @@ export function TransactionButton({title,TonValue, setStatus} : PropsI){
     const [tonConnectUI, setOptions] = useTonConnectUI();
     const [isSuccessSend, setIsSuccessSend] = useState<boolean | null>(null);
 
-
     async function sendTransaction(){
         if(wallet == null){
-            alert('Кошелек не подключен')
+            alert('Кошелек не подключен');
         }else{
             let status;
             try{
-                status = await tonConnectUI.sendTransaction({
-                    validUntil: Date.now() + 5 * 60 * 1000,
-                    messages: [
-                        {
-                            address : "0QD-SuoCHsCL2pIZfE8IAKsjc0aDpDUQAoo-ALHl2mje04A-",
-                            amount: `${TonValue * 1_000_000_000}`
-                        }
-                    ]
+
+                const result = await fetch('http://localhost:7777/api/contract/payload', {
+                    method: "POST",
+                    headers : {"Content-type" : "application/json"},
+                    body: JSON.stringify({
+                        TonValue : TonValue,
+                        'payloadAmount': 5,    // сколько хотим прибавить в контракте
+                        address : "0QBui16XCF61MSWauIDpVFbKAOJmjLHRxXvXeqiN9dYaIu6l"
+                        
+                    })
                 });
+
+                const tx = await result.json();
+                
+                status =  await tonConnectUI.sendTransaction(tx);
+                
             }catch (error) {
                 console.log(error);
             }
             if(status != undefined){
-                setStatus(status);
                 setIsSuccessSend(true);
             }else{
                 setIsSuccessSend(false);

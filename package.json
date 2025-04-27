@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@reduxjs/toolkit": "^2.6.1",
-    "@babel/plugin-proposal-private-property-in-object" : "^7.21.11",
+    "@ton/core": "^0.60.1",
     "@tonconnect/ui-react": "^2.0.12",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",

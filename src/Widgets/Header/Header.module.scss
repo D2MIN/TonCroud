@@ -139,19 +139,20 @@
     .menu_links{
         animation: closeLine2 1s ease-in-out;
         display: flex;
-        padding-left: 50px;
+        // padding-left: 50px;
         font-size: 24px;
         font-family: monospace;
 
         a{
             color: #fff;
             text-decoration: none;
+            padding-left: 50px;
         }
 
         li{
             list-style: none;
             font-size: 24px;
-            margin: 15px 0px;
+            margin: 20px 10px;
         }
     }
 }
