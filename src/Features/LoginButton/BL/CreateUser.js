@@ -5,5 +5,5 @@ export function CreateUser(address){
         body: JSON.stringify({
             address : address
         })
-    })
+    }).catch((error) => {console.log('Add user error')})
 }

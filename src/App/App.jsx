@@ -10,6 +10,7 @@ import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import ProjectInfo from '../Pages/ProjectInfo/UI/ProjectInfo.tsx';
 import { ErrorPage } from './ErrorPage/ErrorPage.jsx';
 import { CreateContractButton } from '../Widgets/CreateProject/SectionFour/UI/CreateContractButton.jsx';
+import Statistic from '../Pages/Statistic/UI/Statistic.tsx';
 
 const MyRouter = createBrowserRouter([
   {
@@ -34,16 +35,19 @@ const MyRouter = createBrowserRouter([
         element : <ProjectInfo/>
       },
       {
-        path : 'testButton',
-        element : <CreateContractButton/>
-      }
+        path : 'statistic',
+        element : <Statistic />
+      },
     ]
   }
 ])
 
 function App() {
   return (
-    <TonConnectUIProvider manifestUrl='https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json'>
+    <TonConnectUIProvider 
+      manifestUrl='https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json'
+      onError={(error) => console.error('TonConnect error in APP')}
+    >
       <div className={style.app_component}>
         <Provider store={store}>
           <RouterProvider router={MyRouter}/>

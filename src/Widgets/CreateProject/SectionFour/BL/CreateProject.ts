@@ -16,7 +16,7 @@ interface ProjectState {
     image : string
 }
 
-export function CreateProject(project : ProjectState, file : File){
+export function CreateProject(project : ProjectState, file : File, address : string){
     const formData = new FormData();
     
     formData.append('name', project.name);
@@ -27,6 +27,7 @@ export function CreateProject(project : ProjectState, file : File){
     formData.append('date', project.date);
     formData.append('file', file.file); // Файл
     formData.append('rewards', JSON.stringify(project.rewards));
+    formData.append('userAddress', address);
 
     fetch('http://localhost:7777/api/project/create', {
        method : "POST" ,

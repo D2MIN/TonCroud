@@ -3,16 +3,18 @@ import style from './TransactionButton.module.scss';
 import React, { cache, useState } from 'react';
 import { MdDownloadDone } from 'react-icons/md';
 import { IoMdClose } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 interface PropsI{
     title : string,
     TonValue : number,
-    setStatus : (status) => void
+    projectId : string,
 }
 
-export function TransactionButton({title,TonValue, setStatus} : PropsI){
+export function TransactionButton({title,TonValue, projectId} : PropsI){
     
     const wallet = useTonWallet();
+    const navigate = useNavigate();
     const [tonConnectUI, setOptions] = useTonConnectUI();
     const [isSuccessSend, setIsSuccessSend] = useState<boolean | null>(null);
 
@@ -42,6 +44,9 @@ export function TransactionButton({title,TonValue, setStatus} : PropsI){
                 console.log(error);
             }
             if(status != undefined){
+                const result = await fetch(`http://localhost:7777/api/project/addTON/${projectId}/${TonValue}`, {
+                    method: "POST"
+                });
                 setIsSuccessSend(true);
             }else{
                 setIsSuccessSend(false);

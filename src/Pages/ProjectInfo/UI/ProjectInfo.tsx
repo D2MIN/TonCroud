@@ -3,7 +3,7 @@ import { ProjectAmount } from '../../../Widgets/ProjectInfo/ProjectAmount/Projec
 import { ProjectRewards } from '../../../Widgets/ProjectInfo/ProjectRewards/UI/ProjectRewards.tsx';
 import { ProjectTitles } from '../../../Widgets/ProjectInfo/ProjectTitles/ProjectTitle.tsx';
 import style from './ProjectInfo.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GetData } from '../BL/GetData.js';
 
@@ -20,10 +20,12 @@ interface DataI{
 
 function ProjectInfo(){
     const {id} = useParams();
+    const currentId = useRef('-1')
     const [data, setData] = useState<DataI>();
     const [loading, setLoading] = useState<boolean>(true);
     const [isPopup,setPopap] = useState<boolean>(false);
     const [TonValue,setTonValue] = useState<number>(0);
+    const [status, setStatus] = useState(false);
 
     function getDay(date){
         const targetDate = new Date(date);
@@ -45,7 +47,9 @@ function ProjectInfo(){
                 console.log("Error : ", error);
             }
         }
-        
+        if(id){
+            currentId.current = id;
+        }
         getData();
     }, [id]);
  
@@ -71,7 +75,7 @@ function ProjectInfo(){
                                         <input onChange={e => setTonValue(Number(e.target.value))} type="number" placeholder='50'/>
                                     </div>
                                     <div className={style.buttonSection}>
-                                        <TransactionButton TonValue={TonValue} title = "Отправить"/>
+                                        <TransactionButton TonValue={TonValue} title = "Отправить" projectId={currentId.current}/>
                                         <button 
                                             className={style.closeButton}
                                             onClick={() => setPopap(false)}

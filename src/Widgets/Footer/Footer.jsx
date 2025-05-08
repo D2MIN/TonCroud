@@ -19,7 +19,7 @@ export function Footer(){
 
             <div className={style.footer_bottom}>
                 {/* <p>© 2025 TonCroud. Все права защищены.</p> */}
-                <a href="/privacy-policy">Политика использования</a>
+                {/* <a href="/privacy-policy">Политика использования</a> */}
             </div>
         </div>
     );

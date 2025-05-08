@@ -14,18 +14,22 @@ export function LoginButton() {
     let userFriendlyAddress = useTonAddress();
 
     const onClick = async () => {
-        if(userFriendlyAddress == ''){
-            await tonConnectUI.openModal();
-            tonConnectUI.onStatusChange( wallet => {
-                if(wallet){
-                    setConnected(true);
-                }else{
-                    setConnected(false);
-                }
-            })
-        }
-        if(userFriendlyAddress != ''){
-            setIsVisibleOptions(!isVisibleOptions);
+        try {
+            if(userFriendlyAddress == ''){
+                await tonConnectUI.openModal();
+                tonConnectUI.onStatusChange( wallet => {
+                    if(wallet){
+                        setConnected(true);
+                    }else{
+                        setConnected(false);
+                    }
+                })
+            }
+            if(userFriendlyAddress != ''){
+                setIsVisibleOptions(!isVisibleOptions);
+            }
+        } catch (error) {
+            console.log('Error in connect')
         }
     }
 
@@ -43,9 +47,13 @@ export function LoginButton() {
     }
 
     useEffect(()=>{
-        let len = userFriendlyAddress.length;
-        if(len && conneted == true){
-            CreateUser(userFriendlyAddress);
+        try{
+            let len = userFriendlyAddress.length;
+            if(len && conneted == true){
+                CreateUser(userFriendlyAddress);
+            }
+        }catch(error){
+            console.log('Error', error)
         }
     }, [userFriendlyAddress]);
 

@@ -5,6 +5,7 @@ import { TransactionButton } from "../../../../Features/TransactionButton/Transa
 import { CreateProject } from "../BL/CreateProject.ts";
 import { useNavigate } from "react-router-dom";
 import { CreateContractButton } from "./CreateContractButton.jsx";
+import { useTonAddress } from "@tonconnect/ui-react";
 
 
 interface rewardI{
@@ -32,15 +33,15 @@ export function SectionFour(file : File){
 
     const project : ProjectState = useSelector((state : RootState) => state.project);
     const [transactionStatus, setTransactionStatus] = useState();
+    const address = useTonAddress();
     const navigate = useNavigate();
 
     useEffect(()=>{
         // transactionStatus?.boc
         if(transactionStatus?.boc){
-            CreateProject(project,file);
+            CreateProject(project,file, address);
             navigate('/')
         }
-        console.log(transactionStatus)
     },[transactionStatus]);
 
     return (
