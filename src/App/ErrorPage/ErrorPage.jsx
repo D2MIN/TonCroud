@@ -9,7 +9,11 @@ export function ErrorPage(){
 			<div className={style.error_section}>
                 <h1><strong>Oops!</strong></h1>
                 <h2>Похоже данная страницы не доступна</h2>
-                <h2>{error.statusText} <strong>{error.status}</strong></h2>
+                {error ?
+                    <h2><strong>{error.status}</strong> {error.statusText}</h2>
+                    :
+                    <h2><strong>404</strong> Not Found</h2>
+                }
             </div>
             <div>
                 <Link to="/">

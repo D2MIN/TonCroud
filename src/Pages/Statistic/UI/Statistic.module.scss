@@ -36,11 +36,13 @@
 }
 
 .canvas_wrapper{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     
     .canvas{
+        margin-top: 100px;
         width: 60vw;
         height: 500px;
     }

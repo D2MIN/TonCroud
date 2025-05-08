@@ -1,4 +1,4 @@
-import { SendTransactionRequest, useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { SendTransactionRequest, useTonAddress, useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
 import style from './TransactionButton.module.scss';
 import React, { cache, useState } from 'react';
 import { MdDownloadDone } from 'react-icons/md';
@@ -14,6 +14,7 @@ interface PropsI{
 export function TransactionButton({title,TonValue, projectId} : PropsI){
     
     const wallet = useTonWallet();
+    const address = useTonAddress();
     const navigate = useNavigate();
     const [tonConnectUI, setOptions] = useTonConnectUI();
     const [isSuccessSend, setIsSuccessSend] = useState<boolean | null>(null);
@@ -29,9 +30,9 @@ export function TransactionButton({title,TonValue, projectId} : PropsI){
                     method: "POST",
                     headers : {"Content-type" : "application/json"},
                     body: JSON.stringify({
-                        TonValue : TonValue,
+                        'TonValue' : TonValue,
                         'payloadAmount': 5,    // сколько хотим прибавить в контракте
-                        address : "0QBui16XCF61MSWauIDpVFbKAOJmjLHRxXvXeqiN9dYaIu6l"
+                        'address' : address
                         
                     })
                 });
@@ -44,8 +45,8 @@ export function TransactionButton({title,TonValue, projectId} : PropsI){
                 console.log(error);
             }
             if(status != undefined){
-                const result = await fetch(`http://localhost:7777/api/project/addTON/${projectId}/${TonValue}`, {
-                    method: "POST"
+                const result = await fetch(`http://localhost:7777/api/project/addTON/${projectId}/${TonValue}/${address}`, {
+                    method: "POST",
                 });
                 setIsSuccessSend(true);
             }else{
